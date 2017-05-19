@@ -1,0 +1,5 @@
+suites:
+    main:
+        namespace: agricolacentral
+        psr4_prefix: agricolacentral
+        src_path: app
