@@ -144,6 +144,9 @@ return [
 		'agricolacentral\Providers\ConfigServiceProvider',
 		'agricolacentral\Providers\EventServiceProvider',
 		'agricolacentral\Providers\RouteServiceProvider',
+		
+		'Collective\Html\HtmlServiceProvider',
+		'Barryvdh\DomPDF\ServiceProvider',
 
 	],
 
@@ -192,6 +195,10 @@ return [
 		'URL'       => 'Illuminate\Support\Facades\URL',
 		'Validator' => 'Illuminate\Support\Facades\Validator',
 		'View'      => 'Illuminate\Support\Facades\View',
+
+		'Form' => 'Collective\Html\FormFacade',
+      	'Html' => 'Collective\Html\HtmlFacade',
+      	'PDF' => 'Barryvdh\DomPDF\Facade',
 
 	],
 

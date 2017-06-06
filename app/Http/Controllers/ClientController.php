@@ -12,14 +12,15 @@ class ClientController extends Controller {
 	 *
 	 * @return Response
 	 */
-		public function __construct()
+	public function __construct()
 	{
 		$this->middleware('auth');
 	}
 	
 	public function index()
 	{
-		return view('client.index');
+		$clients = \agricolacentral\Client::All();
+		return view('client.index', compact('clients'));
 	}
 
 	/**
@@ -29,7 +30,9 @@ class ClientController extends Controller {
 	 */
 	public function create()
 	{
-		return view('client.create');
+		$departs = \agricolacentral\Depart::lists('namedepart','id');
+		$cities = \agricolacentral\City::lists('namedecity','id');
+		return view('client.create', compact('departs','cities'));
 
 	}
 
@@ -38,9 +41,19 @@ class ClientController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(Request $request)
 	{
-		//
+		\agricolacentral\Client::create([
+			'name' => $request['name'],
+			'last_name' => $request['last_name'],
+			'identification' => $request['identification'],
+			'email' => $request['email'],
+			'depart_id' => $request['depart'],
+			'city_id' => $request['city'],
+			'address' => $request['address'],
+			'phone' => $request['phone'],
+			]);
+		return redirect ('/client')->with('message','store');
 	}
 
 	/**
@@ -51,7 +64,9 @@ class ClientController extends Controller {
 	 */
 	public function show($id)
 	{
-		//
+		$accounts = \agricolacentral\Account::where('client_id', $id)->get();
+		$client = \agricolacentral\Client::find($id);
+		return view ('client.show',compact('client','accounts'));
 	}
 
 	/**
@@ -62,7 +77,10 @@ class ClientController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+		$departs = \agricolacentral\Depart::lists('namedepart','id');
+		$cities = \agricolacentral\City::lists('namedecity','id');
+		$client = \agricolacentral\Client::find($id);
+		return view ('client.edit',compact('client','departs','cities'));
 	}
 
 	/**
@@ -71,9 +89,12 @@ class ClientController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update($id, Request $request)
 	{
-		//
+		$client = \agricolacentral\Client::find($id);
+		$client->fill($request->all());
+		$client->save();
+		return redirect ('/client')->with('message','store');
 	}
 
 	/**
@@ -87,9 +108,5 @@ class ClientController extends Controller {
 		//
 	}
 
-			public function dsc()
-	{
-		return view('dsc.index');
-	}
 
 }

@@ -1,84 +1,49 @@
 @extends('admin.principal')
 
-@section('content')
-	<div class="right_col" role="main">
-       	<div class="container">
-			<div class="row">
-			<h3 class="text-center">Crear Declaracion Soporte de cuenta</h3>
-				<form class="form-horizontal form-label-left">
-                  <div class="form-group">
-                    <label class="control-label col-md-3 col-xs-6" for="first-name">Contrato No:<span class="required"></span>
-                    </label>
-                    <div class="col-md-7">
-                      <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="control-label col-md-3 col-xs-6" for="last-name">Actividad<span class="required"></span>
-                    </label>
-                    <div class="col-md-7">
-                      <input type="text" id="last-name" name="last-name" required="required" class="form-control col-md-7 col-xs-12">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="control-label col-md-3 col-xs-6" for="first-name">Valor Contrato<span class="required"></span>
-                    </label>
-                    <div class="col-md-7">
-                      <input type="text" id="identification" required="required" class="form-control col-md-7 col-xs-12">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="control-label col-md-3 col-xs-6" for="first-name">Aportes a al seguridad social?<span class="required"></span>
-                    </label>
-                    <div class="col-md-7">
-                      <input type="text" id="first-name2" required="required" class="form-control col-md-7 col-xs-12">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="control-label col-md-3 col-xs-6" for="first-name">Aportes voluntarios de pension?<span class="required"></span>
-                    </label>
-                    <div class="col-md-7">
-                      <input type="text" id="first-name2" required="required" class="form-control col-md-7 col-xs-12">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="control-label col-md-3 col-xs-6" for="first-name">Aportes AFC<span class="required"></span>
-                    </label>
-                    <div class="col-md-7">
-                      <input type="text" id="first-name2" required="required" class="form-control col-md-7 col-xs-12">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="control-label col-md-3 col-xs-6" for="first-name">Estoy obligado a presentar declaracion de renta<span class="required">*</span>
-                    </label>
-                    <div class="col-md-7">
-                      <input type="text" id="first-name2" required="required" class="form-control col-md-7 col-xs-12">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="control-label col-md-3 col-xs-6" for="first-name">Mis ingresos corresponden a un porcentaje igual  o superior al 80% de la realizacion de una actividades economicas<span class="required">*</span>
-                    </label>
-                    <div class="col-md-7">
-                      <input type="text" id="first-name2" required="required" class="form-control col-md-7 col-xs-12">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="control-label col-md-3 col-xs-6" for="first-name">Mis ingresos anuales superan las 4.073 UVT ($109.323.393)<span class="required">*</span>
-                    </label>
-                    <div class="col-md-7">
-                      <input type="text" id="first-name2" required="required" class="form-control col-md-7 col-xs-12">
-                    </div>
-                  </div>
+<?php $message=Session::get('message') ?>
 
-					<div class="form-group">
-                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-5">
-                          <button type="submit" class="col-md-5 btn btn-success">Guardar</button>
-                          
-                        </div>
-                      </div>
-					
-                </form>
-			</div>
-		</div>
+@if($message == 'store')
+<div class="alert alert-success alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  Declaracion  creada correctamente
+</div>
+@endif
+
+@section('content')
+
+<h1>Listado de declaraciones de soporte</h1>
+<div class="title_right">
+      <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Buscar Clientes">
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button">Buscar</button>
+            </span>
+          </div>
+      </div>
     </div>
+<table class="table">
+  <thead>
+    <th>Codigo</th>
+    <th>Fecha</th>
+    <th>N° Contrato</th>
+    <th>Valor Contrato</th>
+    <th>Opciones</th>
+  </thead>
+  @foreach($dsc as $dsc)
+  <tbody>
+    <td>{{ $dsc->id }}</td>
+    <td>{{ $dsc->fecha }}</td>
+    <td>{{ $dsc->Num_Cont }}</td>
+    <td>{{ number_format($dsc->val_contra)}}.oo</td>
+    <td>
+      {!!link_to_route('dsc.edit', $title = 'EDITAR', $parameters = $dsc->id, $attributes = ['class'=>'btn btn-success'])!!}
+      {!!link_to_route('dsc.show', $title = 'PDF', $parameters = $dsc->id, $attributes = ['class'=>'btn btn-danger'])!!}
+      
+      
+
+    </td>
+  </tbody>
+  @endforeach
+</table>
 @endsection
