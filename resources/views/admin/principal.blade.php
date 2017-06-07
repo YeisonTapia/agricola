@@ -64,6 +64,13 @@
                       <li><a href="{{ url('/dsc/create') }}">Crear Declaracion</a></li>
                     </ul>
                   </li>
+                  <li><a><i class="fa fa-database"></i> Nomina <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="#">Nomina Fijos</a></li>
+                      <li><a href="#">Nomina Colaboradores</a></li>
+                      <li><a href="#">Empleados</a></li>
+                    </ul>
+                  </li>
                 </ul>
               </div>
             </div>
