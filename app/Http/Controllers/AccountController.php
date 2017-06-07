@@ -68,7 +68,8 @@ class AccountController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+		$account = \agricolacentral\Account::find($id);
+		return view ('account.edit', compact('account'));
 	}
 
 	/**
@@ -77,9 +78,12 @@ class AccountController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update($id, Request $request)
 	{
-		//
+		$account = \agricolacentral\Account::find($id);
+		$account->fill($request->all());
+		$account->save();
+		return redirect ('/account')->with('message','store');
 	}
 
 	/**
@@ -90,7 +94,8 @@ class AccountController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		//
+		\agricolacentral\Account::destroy($id);
+		return redirect ('/account');
 	}
 
 }

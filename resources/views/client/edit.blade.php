@@ -28,14 +28,19 @@
       <div class="col-md-5 col-xs-12">{!!Form::text('phone',null,['class'=>'form-control','placeholder'=>'Ingresa Telefono del cliente'])!!}</div>    
     </div>
     <div class="form-group">
-      <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-2">{!!Form::submit('Actualizar',['class'=>'col-md-3 btn col-xs-12 btn-primary'])!!}</div>
+      <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-4">
+      {!!Form::submit('Actualizar',['class'=>'col-md-4 btn col-xs-12 btn-primary'])!!}</div>
     </div>
   {!!Form::close()!!}
 
-  {!!Form::model($client,['route'=> ['client.destroy',$client->id],'method'=>'DELETE','class'=>'form-horizontal form-label-left'])!!}
 
-  {!!Form::submit('Eliminar',['class'=>'col-md-3 btn col-xs-12 btn-danger'])!!}
+    {!!Form::open(['route'=> ['client.destroy',$client->id],'method'=>'DELETE','class'=>'form-horizontal form-label-left'])!!}
 
-
+    <div class="form-group">
+      <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-4">
+      {!!Form::submit('Eliminar',['class'=>'col-md-4 btn col-xs-12 btn-danger'])!!}</div>
+    </div>
   {!!Form::close()!!}
+
+
 @endsection

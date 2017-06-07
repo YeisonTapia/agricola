@@ -18,7 +18,6 @@
 		<th>NOMBRE DEL CLIENTE</th>
 		<th>DOCUMENTO DEL CLIENTE</th>
 		<th>VALOR DE LA CUENTA DE COBRO</th>
-		<th>ESTADO</th>
 		<th>OPCIONES</th>
 		<hr>
 	</thead>
@@ -29,13 +28,9 @@
 		<td>{{ $account->client->name}} {{ $account->client->last_name}}</td>
 		<td>{{ $account->client->identification}}</td>
 		<td>{{ $account->price }}</td>
-		<td></td>
 		<td>
-
 			{!!link_to_route('account.show', $title = 'PDF', $parameters = $account->id, $attributes = ['class'=>'btn btn-success'])!!}
 			{!!link_to_route('account.edit', $title = 'Editar', $parameters = $account->id, $attributes = ['class'=>'btn btn-primary'])!!}
-			{!!link_to_route('account.edit', $title = 'Eliminar', $parameters = $account->id, $attributes = ['class'=>'btn btn-danger'])!!}
-
 		</td>
 	</tbody>
 	@endforeach

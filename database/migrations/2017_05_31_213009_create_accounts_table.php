@@ -18,7 +18,7 @@ class CreateAccountsTable extends Migration {
 			$table->timestamps();
 			$table->date('date');
 			$table->integer('client_id')->unsigned();
-			$table->foreign('client_id')->references('id')->on('clients');
+			$table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
 			$table->string('details');
 			$table->integer('price');
 

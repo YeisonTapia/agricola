@@ -24,7 +24,6 @@
                     <th>#</th>
                     <th>FECHA</th>
                     <th>Valor</th>
-                    <th>ESTADO</th>
                     <th>Opciones</th>
                 </thead>
                     @foreach($accounts as $account)
@@ -32,11 +31,9 @@
         <td>{{ $account->id }}</td>
         <td>{{ $account->date }}</td>
         <td>{{ $account->price }}</td>
-        <td></td>
         <td>
-            {!!link_to_route('account.show', $title = 'Ver', $parameters = $account->id, $attributes = ['class'=>'btn btn-success'])!!}
+            {!!link_to_route('account.show', $title = 'PDF', $parameters = $account->id, $attributes = ['class'=>'btn btn-success'])!!}
             {!!link_to_route('account.edit', $title = 'Editar', $parameters = $account->id, $attributes = ['class'=>'btn btn-primary'])!!}
-            {!!link_to_route('account.edit', $title = 'Eliminar', $parameters = $account->id, $attributes = ['class'=>'btn btn-danger'])!!}
             
 
         </td>

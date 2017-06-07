@@ -105,7 +105,8 @@ class ClientController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		//
+		\agricolacentral\Client::destroy($id);
+		return redirect ('/client');
 	}
 
 

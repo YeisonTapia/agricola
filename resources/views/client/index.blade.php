@@ -39,7 +39,6 @@
 			<td>
 			{!!link_to_route('client.show', $title = 'Ver', $parameters = $client->id, $attributes = ['class'=>'btn btn-success'])!!}
 			{!!link_to_route('client.edit', $title = 'Editar', $parameters = $client->id, $attributes = ['class'=>'btn btn-primary'])!!}
-			{!!link_to_route('client.edit', $title = 'Eliminar', $parameters = $client->id, $attributes = ['class'=>'btn btn-danger'])!!}
 			</td>
 		</tbody>
 		@endforeach
