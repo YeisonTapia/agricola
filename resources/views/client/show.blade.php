@@ -1,5 +1,14 @@
 @extends('admin.principal')
 
+<?php $message=Session::get('message') ?>
+
+@if($message == 'store')
+    <div class="alert alert-success alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      No es posible eliminar a este usuario, tiene cuentas de cobro asociadas, si esta seguro de eliminarlo debe eliminar primero sus cuentas de cobro.
+    </div>
+@endif
+
 @section('content')
     <div class="container">
     	<div class="row">

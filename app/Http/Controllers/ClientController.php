@@ -105,8 +105,14 @@ class ClientController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		\agricolacentral\Client::destroy($id);
-		return redirect ('/client');
+		$accounts = \agricolacentral\Account::where('client_id', $id)->count();
+		if ($accounts>0) {
+			return view ('client.erroreliminated');
+		} else {
+			\agricolacentral\Client::destroy($id);
+			return redirect ('/client');
+		}
+		
 	}
 
 
