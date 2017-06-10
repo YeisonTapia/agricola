@@ -19,3 +19,5 @@ Route::resource('city', 'CityController');
 Route::resource('depart', 'DepartController');
 Route::resource('account', 'AccountController');
 Route::resource('dsc', 'DscController');
+
+Route::get('client/cities/{id}', 'CityController@getCities');

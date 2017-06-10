@@ -114,11 +114,9 @@
         <!-- /footer content -->
       </div>
     </div>
-    <script  src="https://code.jquery.com/jquery-2.2.4.min.js"
-  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
-  crossorigin="anonymous"></script>
     <!-- jQuery -->
     {!!Html::script('/js/jquery.min.js')!!}    
+
     <!-- Bootstrap -->
     {!!Html::script('/js/bootstrap.min.js')!!}
     <!-- FastClick -->
@@ -129,7 +127,8 @@
     {!!Html::script('/js/jquery.mCustomScrollbar.concat.min.js')!!}
     <!-- Custom Theme Scripts -->
     {!!Html::script('/js/custom.min.js')!!}
-     {!!Html::script('/js/dropdown.js')!!}
 
+
+    
   </body>
 </html>

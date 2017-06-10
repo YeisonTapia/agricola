@@ -18,4 +18,8 @@ class City extends Model {
         return $this->hasMany('\agricolacentral\Client');
     }
 
+
+    public static function cities ($id){
+        return City::where('depart_id','=',$id)->get();
+    }
 }

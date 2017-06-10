@@ -24,7 +24,7 @@
     </div>
     <div class="form-group">
       <div class="col-md-3 col-xs-12 col-md-offset-2">{!!Form::label('Ciudad')!!}</div>
-      <div class="col-md-5 col-xs-12">{!!Form::select('city',$cities, null, ['id'=>'city','class'=>'form-control'])!!}</div>    
+      <div class="col-md-5 col-xs-12">{!! Form::select('city',['placeholder'=>'Selecciona'], null, ['id'=>'town','class'=>'form-control'])!!}</div>    
     </div>
     <div class="form-group">
       <div class="col-md-3 col-xs-12 col-md-offset-2">{!!Form::label('Direccion')!!}</div>
@@ -38,4 +38,11 @@
       <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-5">{!!Form::submit('Registar Cliente',['class'=>'col-md-5 btn col-xs-12 btn-success'])!!}</div>
     </div>
   {!!Form::close()!!}
+
+    {!! Html::script('js/jquery-3.2.1.min.js') !!}
+    {!! Html::script('js/dropdown.js') !!}
+
+
 @endsection
+
+

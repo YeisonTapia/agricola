@@ -18,6 +18,13 @@ class CityController extends Controller {
 		return view('city.index', compact('cities'));
 	}
 
+	public function getCities (Request $request,$id){
+		if ($request->ajax()){
+			$cities = \agricolacentral\City::cities($id);
+			return response()->json($cities);
+		}
+	}
+
 	/**
 	 * Show the form for creating a new resource.
 	 *
