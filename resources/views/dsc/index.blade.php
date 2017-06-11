@@ -30,7 +30,7 @@
     <th>Valor Contrato</th>
     <th>Opciones</th>
   </thead>
-  @foreach($dsc as $dsc)
+  @foreach($dscs as $dsc)
   <tbody>
     <td>{{ $dsc->id }}</td>
     <td>{{ $dsc->fecha }}</td>
@@ -46,4 +46,5 @@
   </tbody>
   @endforeach
 </table>
+{!! $dscs->render() !!}
 @endsection

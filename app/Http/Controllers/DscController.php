@@ -14,8 +14,8 @@ class dscController extends Controller {
 	 */
 	public function index()
 	{
-		$dsc = \agricolacentral\dsc::All();
-		return view ('dsc.index',compact('dsc'));
+		$dscs = \agricolacentral\dsc::paginate(6);
+		return view ('dsc.index',compact('dscs'));
 	}
 
 	/**

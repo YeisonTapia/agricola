@@ -19,7 +19,7 @@ class ClientController extends Controller {
 	
 	public function index()
 	{
-		$clients = \agricolacentral\Client::All();
+		$clients = \agricolacentral\Client::paginate(6);
 		return view('client.index', compact('clients'));
 	}
 

@@ -20,7 +20,7 @@
     </div>
     <div class="form-group">
       <div class="col-md-3 col-xs-12 col-md-offset-2">{!!Form::label('Departamento')!!}</div>
-      <div class="col-md-5 col-xs-12"> {!!Form::select('depart',$departs, null, ['id'=>'state','class'=>'form-control'])!!}</div> 
+      <div class="col-md-5 col-xs-12"> {!!Form::select('depart',$departs, null , ['id'=>'state','class'=>'form-control'])!!}</div> 
     </div>
     <div class="form-group">
       <div class="col-md-3 col-xs-12 col-md-offset-2">{!!Form::label('Ciudad')!!}</div>

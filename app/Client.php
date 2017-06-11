@@ -22,4 +22,8 @@ class Client extends Model {
         return $this->hasMany('\agricolacentral\Account');
     }
 
+    public function scopeName($query, $name){
+        $query->where('name', $name);
+    }
+
 }

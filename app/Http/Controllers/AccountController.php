@@ -14,7 +14,7 @@ class AccountController extends Controller {
 	 */
 	public function index()
 	{
-		$accounts = \agricolacentral\Account::All();
+		$accounts = \agricolacentral\Account::paginate(6);
 		return view ('account.index',compact('accounts'));
 	}
 

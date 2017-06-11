@@ -35,4 +35,5 @@
 	</tbody>
 	@endforeach
 </table>
+{!! $accounts->render() !!}
 @endsection
